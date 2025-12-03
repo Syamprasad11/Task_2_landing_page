@@ -17,19 +17,28 @@ header{
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-header .logo{
+.logo{
     font-size: 24px;
     font-weight: bold;
     color: #0077b6;
 }
 
-header nav a{
+.nav-links a{
     margin-left: 20px;
     text-decoration: none;
     color: #333;
     font-weight: bold;
+}
+
+.menu-icon{
+    display: none;
+    cursor: pointer;
+    font-size: 26px;
 }
 
 /* HERO SECTION */
@@ -40,10 +49,12 @@ header nav a{
     background: linear-gradient(to right, #57c1eb, #246fa8);
     padding: 60px 40px;
     color: white;
+    flex-wrap: wrap;
 }
 
 .hero-text{
     width: 50%;
+    min-width: 280px;
 }
 
 .hero-text h1{
@@ -68,7 +79,7 @@ header nav a{
 }
 
 .hero-img img{
-    width: 380px;
+    width: 350px;
     border-radius: 10px;
 }
 
@@ -78,19 +89,17 @@ header nav a{
     text-align: center;
 }
 
-.why h2{
-    margin-bottom: 30px;
-    font-size: 28px;
-}
-
 .why-boxes{
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .box{
-    width: 28%;
+    width: 30%;
+    min-width: 250px;
     background: #ffffff;
     padding: 20px;
     border-radius: 10px;
@@ -104,18 +113,17 @@ header nav a{
     text-align: center;
 }
 
-.contact h2{
-    margin-bottom: 25px;
-}
-
 .contact-boxes{
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .c-box{
     background: #f1e5c0;
     width: 28%;
+    min-width: 250px;
     padding: 20px;
     border-radius: 10px;
 }
@@ -126,5 +134,54 @@ footer{
     color: white;
     padding: 15px;
     text-align: center;
-    margin-top: 0px;
+}
+
+/* ---------------------- RESPONSIVE ----------------------- */
+
+/* Tablets */
+@media (max-width: 900px){
+    .hero{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text{
+        width: 100%;
+    }
+
+    .hero-text p{
+        width: 100%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px){
+
+    header{
+        padding: 15px 20px;
+    }
+
+    .nav-links{
+        display: none;
+    }
+
+    .menu-icon{
+        display: block;
+    }
+
+    .hero{
+        padding: 40px 20px;
+    }
+
+    .hero-img img{
+        width: 250px;
+    }
+
+    .box, .c-box{
+        width: 100%;
+    }
+
+    .why-boxes, .contact-boxes{
+        justify-content: center;
+    }
 }
